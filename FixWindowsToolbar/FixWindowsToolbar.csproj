@@ -16,11 +16,16 @@
 		<OutDir Condition="$(Configuration) == 'Release'">..\Out\Release</OutDir>
 		<Authors>Vrecq Jean-marie</Authors>
 		<PackageLicenseExpression>CC-BY-4.0</PackageLicenseExpression>
+		<ApplicationIcon>EmbeddedResources\rhn.ico</ApplicationIcon>
 
 	</PropertyGroup>
 
 	<ItemGroup>
 		<EmbeddedResource Include="EmbeddedResources\**\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="EmbeddedResources\rhn.ico" />
 	</ItemGroup>
   
 	<ItemGroup>

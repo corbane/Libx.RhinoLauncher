@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<!--
+		The minimum version of .NETFramework for Microsoft-WindowsAPICodePack-Shell is 4.5.2.
+		I don't have Rhino version 5.
+		I place these plugins with this minimum version in case Rhino 5 can be compatible.
+		-->
+		<TargetFramework>net452</TargetFramework>
+		<Version>1.0</Version>
+		<Title>FixWindowsToolbar</Title>
+		<Description>Fixed Rhino version layout in Windows toolbar.</Description>
+
+		<TargetExt>.rhp</TargetExt>
+		<OutDir Condition="$(Configuration) == 'Debug'">..\Out\Debug</OutDir>
+		<OutDir Condition="$(Configuration) == 'Release'">..\Out\Release</OutDir>
+		<Authors>Vrecq Jean-marie</Authors>
+		<PackageLicenseExpression>CC-BY-4.0</PackageLicenseExpression>
+
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="EmbeddedResources\**\*" />
+	</ItemGroup>
+  
+	<ItemGroup>
+		<PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
+	</ItemGroup>
+  
+	<ItemGroup>
+	  <Reference Include="RhinoCommon">
+	    <HintPath>C:\Program Files\Rhino 6\System\RhinoCommon.dll</HintPath>
+	    <Private>False</Private>
+	  </Reference>
+	</ItemGroup>
+  
+	<PropertyGroup Condition="$(Configuration) == 'Debug' AND $([MSBuild]::IsOSPlatform(Windows))">
+		<StartProgram>C:\Program Files\Rhino 7\System\Rhino.exe</StartProgram>
+		<StartArguments></StartArguments>
+		<StartAction>Program</StartAction>
+	</PropertyGroup>
+  
+</Project>

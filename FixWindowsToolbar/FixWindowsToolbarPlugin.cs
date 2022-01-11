@@ -1,24 +1,21 @@
-﻿
+﻿namespace Libx.RhinoLauncher.FixWindowsToolbar;
+
 using Rhino.PlugIns;
 
-
-namespace Libx.RhinoLauncher.FixWindowsToolbar
+public class FixWindowsToolbarPlugin : PlugIn
 {
-    public class FixWindowsToolbarPlugin : PlugIn
-    {
-        public static FixWindowsToolbarPlugin Instance { get; private set; }
+    public static FixWindowsToolbarPlugin Instance { get; private set; }
 
-        public FixWindowsToolbarPlugin () { Instance = this; }
+    public FixWindowsToolbarPlugin () { Instance = this; }
         
-        public override PlugInLoadTime LoadTime => PlugInLoadTime.AtStartup;
+    public override PlugInLoadTime LoadTime => PlugInLoadTime.AtStartup;
 
-        protected override LoadReturnCode OnLoad (ref string errorMessage)
-        {
-            Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.Instance.SetApplicationIdForSpecificWindow (
-                Rhino.RhinoApp.MainWindowHandle (),
-                "Rhino " + Rhino.RhinoApp.ExeVersion.ToString ()
-            );
-            return base.OnLoad (ref errorMessage);
-        }
+    protected override LoadReturnCode OnLoad (ref string errorMessage)
+    {
+        Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.Instance.SetApplicationIdForSpecificWindow (
+            Rhino.RhinoApp.MainWindowHandle (),
+            "Rhino " + Rhino.RhinoApp.ExeVersion.ToString ()
+        );
+        return base.OnLoad (ref errorMessage);
     }
 }

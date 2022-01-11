@@ -7,25 +7,25 @@
 		I place these plugins with this minimum version in case Rhino 5 can be compatible.
 		-->
 		<TargetFramework>net452</TargetFramework>
-		<Version>1.0</Version>
-		<Title>FixWindowsToolbar</Title>
-		<Description>Fixed Rhino version layout in Windows toolbar.</Description>
-
+		<LangVersion>10</LangVersion>
 		<TargetExt>.rhp</TargetExt>
 		<OutDir Condition="$(Configuration) == 'Debug'">..\Out\Debug</OutDir>
 		<OutDir Condition="$(Configuration) == 'Release'">..\Out\Release</OutDir>
+		
+		<Version>1.0</Version>
+		<Title>FixWindowsToolbar</Title>
+		<Description>Fixed Rhino version layout in Windows toolbar.</Description>
 		<Authors>Vrecq Jean-marie</Authors>
+
 		<PackageLicenseExpression>CC-BY-4.0</PackageLicenseExpression>
-		<ApplicationIcon>EmbeddedResources\rhn.ico</ApplicationIcon>
+		<PackageIcon>rhn.png</PackageIcon>
+		
+		<RepositoryUrl>https://github.com/corbane/Libx.RhinoLauncher</RepositoryUrl>
 
 	</PropertyGroup>
 
 	<ItemGroup>
 		<EmbeddedResource Include="EmbeddedResources\**\*" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="EmbeddedResources\rhn.ico" />
 	</ItemGroup>
   
 	<ItemGroup>
